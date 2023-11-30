@@ -2,18 +2,101 @@ input[type="radio"] {
   margin-left: 10px;
 }
 
-.visualizeModeBox {
+.visualizeModeBox > input {
+  display:none;
+}
+
+.visualizeModeBox > label{
   border: 2px solid #b0d1df;
+  box-shadow: 0px 2px 0px #778e99;
   border-radius: 12px;
   margin: 10px 10px;
   padding: 10px 15px 20px 10px;
   background-color: #dff1f9;
+  transition: .2s;
 }
 
-.colorRangeBox {
+.visualizeModeBox > label:hover, input.visualizeMode:checked + label{
+  border: 2px solid #94d3ee;
+  border-radius: 12px;
+  margin: 10px 10px;
+  padding: 10px 15px 20px 10px;
+  background-color:#fff;
+  transform: translate3d(0, 2px, 0);
+  box-shadow: none;
+}
+
+.colorRangeBox > input {
+  display:none;
+}
+
+.colorRangeBox > label{
   border: 2px solid #b0d1df;
+  box-shadow: 0px 1px 0px #778e99;
   border-radius: 6px;
   margin: 7px 7px;
   padding: 5px 12px;
   background-color: #dff1f9;
+}
+
+.colorRangeBox > label:hover, .colorRangeBox > input:checked + label{
+  border: 2px solid #94d3ee;
+  box-shadow: 0px 1px 0px #778e99;
+  border-radius: 6px;
+  margin: 7px 7px;
+  padding: 5px 12px;
+  background-color: #fff;
+  transform: translate3d(0, 2px, 0);
+  box-shadow: none;
+}
+
+.selectbox {
+  border: 2px solid #94d3ee;
+  border-radius: 6px;
+  box-shadow: 0px 1px 0px #778e99;
+  position: relative;
+}
+
+.selectbox::before,
+.selectbox::after {
+  position: absolute;
+  content: '';
+  pointer-events: none;
+}
+
+.selectbox::before {
+  display: inline-block;
+  right: 0;
+  width: 2.8em;
+  height: 2.4em;
+  border-radius: 0 3px 3px 0;
+  background-color: #94d3ee;
+}
+
+.selectbox::after {
+  position: absolute;
+  top: 50%;
+  right: 1.4em;
+  transform: translate(50%, -50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+}
+
+.selectbox select {
+  appearance: none;
+  min-width: 230px;
+  height: 2.4em;
+  padding: .4em 3.6em .4em .8em;
+  border: none;
+  border-radius: 3px;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.selectbox select:focus {
+  outline: 2px solid #94d3ee;
 }

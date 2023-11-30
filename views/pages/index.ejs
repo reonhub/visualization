@@ -27,43 +27,51 @@
                 <h4>Step2: 入力データを選択する</h4>
                 <div style="padding: 10px 40px;" id="input1">
                     <label for="inputFile1" style="width: 120px;">入力ファイル1</label>
-                    <select style="width: 150px;" name="inputFile1" id="inputFile1" onchange="selectInput()">
-                        <option selected>選択してください</option>
-                        <% fileList.forEach(function (fileName, key){%>
-                            <option value=<%=fileName%>><%=fileName%></option>
-                        <% }) %>
-                    </select>
+                    <label class="selectbox">
+                        <select style="width: 150px;" name="inputFile1" id="inputFile1" onchange="selectInput()">
+                            <option selected>選択してください</option>
+                            <% fileList.forEach(function (fileName, key){%>
+                                <option value=<%=fileName%>><%=fileName%></option>
+                            <% }) %>
+                        </select>
+                    </label>
                 </div>
                 <div style="padding: 10px 40px;" id="input2">
                     <label for="inputFile2" style="width: 120px;">入力ファイル2</label>
-                    <select style="width: 150px;" name="inputFile2" id="inputFile2">
-                        <option selected>選択してください</option>
-                        <% fileList.forEach(function (fileName, key){%>
-                            <option value=<%=fileName%>><%=fileName%></option>
-                        <% }) %>
-                    </select>
+                    <label class="selectbox">
+                        <select style="width: 150px;" name="inputFile2" id="inputFile2">
+                            <option selected>選択してください</option>
+                            <% fileList.forEach(function (fileName, key){%>
+                                <option value=<%=fileName%>><%=fileName%></option>
+                                <% }) %>
+                        </select>
+                    </label>
                 </div>
                 <div id="inputItem">
                     <div style="padding: 5px 40px;">
                         <label for="param" style="width: 120px;">動作パラメータ</label>
-                        <select style="width: 150px;" name="param" id="param">
-                            <option selected>選択してください</option>
-                            <option value="position">位置</option>
-                            <option value="velocity">速度</option>
-                            <option value="acceleration">加速度</option>
-                            <option value="current">モータ電流</option>
-                            <option value="reverse-position">軸反転位置</option>
-                        </select>
+                        <label class="selectbox">
+                            <select style="width: 150px;" name="param" id="param">
+                                <option selected>選択してください</option>
+                                <option value="position">位置</option>
+                                <option value="velocity">速度</option>
+                                <option value="acceleration">加速度</option>
+                                <option value="current">モータ電流</option>
+                                <option value="reverse-position">軸反転位置</option>
+                            </select>
+                        </label>
                     </div>
                     <div style="padding: 5px 40px;">        
                         <label for="axis" style="width: 120px; text-align:center;">軸</label>
-                        <select style="width: 150px;" name="axis" id="axis">
-                            <option selected>選択してください</option>
-                            <option value="x">X軸</option>
-                            <option value="y">Y軸</option>
-                            <option value="z">Z軸</option>
-                            <option value="c">C軸</option>
-                        </select>
+                        <label class="selectbox">
+                            <select style="width: 150px;" name="axis" id="axis">
+                                <option selected>選択してください</option>
+                                <option value="x">X軸</option>
+                                <option value="y">Y軸</option>
+                                <option value="z">Z軸</option>
+                                <option value="c">C軸</option>
+                            </select>
+                        </label>
                     </div>
                 </div>
             </fieldset>
