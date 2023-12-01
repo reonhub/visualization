@@ -2,10 +2,12 @@ const express = require("express");
 const path = require('path');
 const app = express();
 const fs = require("fs")
+const os = require('os');
 const bodyParser = require('body-parser');
 const visualize = require("./modules/visualize.js")
 
 const PORT = 3000;
+const DOMAIN = os.hostname() === "EC2AMAZ-MQVCQCB" ? "18.179.45.112" : "localhost"
 
 app.set("view engine", "ejs");
 app.set('views', './views');
@@ -50,12 +52,12 @@ app.post("/execute", async (req, res) => {
 });
 
 app.post("/visualize/error", (req, res) => {
-  imageUrl = visualize.fetchErrorImageUrl(req.body);
+  imageUrl = visualize.fetchErrorImageUrl(DOMAIN, req.body);
   res.send({output: imageUrl})
 });
 
 app.post("/visualize/parameter", (req, res) => {
-  imageUrl = visualize.fetchParameterImageUrl(req.body);
+  imageUrl = visualize.fetchParameterImageUrl(DOMAIN, req.body);
   res.send({output: imageUrl})
 });
 
