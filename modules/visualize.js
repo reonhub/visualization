@@ -1,5 +1,7 @@
 exports.fetchErrorImageUrl = function (input){
-  return "./image/C軸加速度1.png";
+  idx = input.inputFile1.replace(/[^0-9]/g,"");
+  
+  return `./image/加工誤差_${idx}.png`;
 }
 
 exports.fetchParameterImageUrl = function (input){
@@ -8,10 +10,10 @@ exports.fetchParameterImageUrl = function (input){
   idx = input.inputFile1.replace(/[^0-9]/g,"");
   range = input.colorRange;
   if(param && axis && idx && range){
-    url = `./image/${param}_${axis}_${idx}_${range}.png`
+    url = `http://localhost:3000/image/${param}_${axis}_${idx}_${range}.png`
     return url;
   } else {
-    return "https://via.placeholder.com/570x292/?text=Select\ correct\ parameter";
+    return "https://via.placeholder.com/570x292/?text=Not%20Found";
   }
 }
 
