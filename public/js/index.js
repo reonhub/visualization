@@ -33,3 +33,24 @@ function selectInput() {
     }
 }
 
+
+function selectParam(){
+    param = document.getElementById("param").value;
+    if(param == "モータ電流"){
+        document.getElementById("medium").checked = false;
+        document.getElementById("small").disabled = false;
+        document.getElementById("medium").disabled = true;
+        document.getElementById("large").disabled = false;
+    } else if(param == "軸反転位置"){
+        document.getElementById("small").checked = false;
+        document.getElementById("medium").checked = false;
+        document.getElementById("large").checked = false;
+        document.getElementById("small").disabled = true;
+        document.getElementById("medium").disabled = true;
+        document.getElementById("large").disabled = true;
+    } else {
+        document.getElementById("small").disabled = false;
+        document.getElementById("medium").disabled = false;
+        document.getElementById("large").disabled = false;
+    }
+}

@@ -51,7 +51,7 @@
                     <div style="padding: 5px 40px;">
                         <label for="param" style="width: 120px;">動作パラメータ</label>
                         <label class="selectbox">
-                            <select style="width: 150px;" name="param" id="param">
+                            <select style="width: 150px;" name="param" id="param" onchange="selectParam()">
                                 <option selected>選択してください</option>
                                 <option value="位置">位置</option>
                                 <option value="速度">速度</option>
@@ -78,9 +78,9 @@
             <fieldset style="margin: 0 0 3vh;">
                 <h4>Step3: カラーレンジを選択する</h4>
                 <div style="display: flex; padding-left: 40px;">
-                    <div class="colorRangeBox"><input type="radio" style="margin-right: 5px;" name="colorRange" value="small" id="range1" ><label for="range1">小</label></div>
-                    <div class="colorRangeBox"><input type="radio" style="margin-right: 5px;" name="colorRange" value="medium" id="range2" ><label for="range2">中</label></div>
-                    <div class="colorRangeBox"><input type="radio" style="margin-right: 5px;" name="colorRange" value="large" id="range3" ><label for="range3">大</label></div>
+                    <div class="colorRangeBox"><input type="radio" style="margin-right: 5px;" name="colorRange" value="small" id="small" ><label for="small">小</label></div>
+                    <div class="colorRangeBox"><input type="radio" style="margin-right: 5px;" name="colorRange" value="medium" id="medium" ><label for="medium">中</label></div>
+                    <div class="colorRangeBox"><input type="radio" style="margin-right: 5px;" name="colorRange" value="large" id="large" ><label for="large">大</label></div>
                 </div>
             </fieldset>
             <div>

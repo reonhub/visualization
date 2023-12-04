@@ -14,7 +14,13 @@
 
     <main>
         <%- include('../partials/body'); %>
-        <img src=<%= result.output %> alt=<%= result.output %>>
+        <ul style="list-style-type: none;">
+            <li>入力ファイル：<%= data.inputFile1 %></li>
+            <li>パラメータ：<%= data.param %></li>
+            <li>軸：<%= data.axis %></li>
+            <li>カラーレンジ：<%= data.colorRange %></li>
+        </ul>
+        <img style="max-width: 45vw"src=<%= result.output %> alt=<%= result.output %>>
         <div style="margin: 20px 0;"class="btn btn-secondary" >
           <a style="color: white; text-decoration:none;" href="/">戻る</a>
         </div>

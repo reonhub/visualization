@@ -48,7 +48,7 @@ app.post("/execute", async (req, res) => {
   }).catch((err) => {
     console.log(err);
   });
-  res.render("pages/result.ejs", {result: result})
+  res.render("pages/result.ejs", {result: result, data: data})
 });
 
 app.post("/visualize/error", (req, res) => {
