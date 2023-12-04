@@ -26,7 +26,7 @@ selecterInputItem.style.display = "none";
 
 function selectInput() {
     mode = document.getElementsByClassName("visualizeMode")
-    if(mode[1].checked && document.getElementById("inputFile1").value.indexOf("稼") === 0){
+    if(mode[1].checked && document.getElementById("logFile").value.indexOf("稼") === 0){
         selecterInputItem.style.display = "block";
     } else {
         selecterInputItem.style.display = "none";

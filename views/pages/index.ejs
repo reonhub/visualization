@@ -26,23 +26,23 @@
             <fieldset style="margin: 0 0 3vh;">
                 <h4>Step2: 入力データを選択する</h4>
                 <div style="padding: 10px 40px;" id="input1">
-                    <label for="inputFile1" style="width: 120px;">入力ファイル1</label>
+                    <label for="logFile" style="width: 120px;">入力ファイル1</label>
                     <label class="selectbox">
-                        <select style="width: 150px;" name="inputFile1" id="inputFile1" onchange="selectInput()">
+                        <select style="width: 150px;" name="logFile" id="logFile" onchange="selectInput()">
                             <option selected>選択してください</option>
-                            <% fileList.forEach(function (fileName, key){%>
-                                <option value=<%=fileName%>><%=fileName%></option>
+                            <% logList.forEach(function (logName, key){%>
+                                <option value=<%=logName%>><%=logName%></option>
                             <% }) %>
                         </select>
                     </label>
                 </div>
                 <div style="padding: 10px 40px;" id="input2">
-                    <label for="inputFile2" style="width: 120px;">入力ファイル2</label>
+                    <label for="modelFile" style="width: 120px;">入力ファイル2</label>
                     <label class="selectbox">
-                        <select style="width: 150px;" name="inputFile2" id="inputFile2">
+                        <select style="width: 150px;" name="modelFile" id="modelFile">
                             <option selected>選択してください</option>
-                            <% fileList.forEach(function (fileName, key){%>
-                                <option value=<%=fileName%>><%=fileName%></option>
+                            <% modelList.forEach(function (modelList, key){%>
+                                <option value=<%=modelList%>><%=modelList%></option>
                                 <% }) %>
                         </select>
                     </label>

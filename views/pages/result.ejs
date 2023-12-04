@@ -14,11 +14,13 @@
 
     <main>
         <%- include('../partials/body'); %>
+        <h4><%= data.visualizeMode === "mode1" ? "加工誤差" : "パラメータ" %>の可視化カラーマップ</h4>
         <ul style="list-style-type: none;">
-            <li>入力ファイル：<%= data.inputFile1 %></li>
-            <li>パラメータ：<%= data.param %></li>
-            <li>軸：<%= data.axis %></li>
-            <li>カラーレンジ：<%= data.colorRange %></li>
+            <li>入力ファイル1：<%= data.logFile %></li>
+            <% if(data.visualizeMode === "mode1"){%><li>入力ファイル2：<%= data.modelFile %></li><% } %>
+            <% if(data.visualizeMode === "mode2"){%><li>パラメータ：<%= data.param %></li><% } %>
+            <% if(data.visualizeMode === "mode2"){%><li>軸：<%= data.axis %></li><% } %>
+            %><li>カラーレンジ：<%= data.colorRange %></li>
         </ul>
         <img style="max-width: 45vw"src=<%= result.output %> alt=<%= result.output %>>
         <div style="margin: 20px 0;"class="btn btn-secondary" >

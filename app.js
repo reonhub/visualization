@@ -29,7 +29,9 @@ const axios = axiosBase.create({
 
 app.get("/", (req, res) => {
   const fileList = fs.readdirSync(path.join(__dirname, 'public', 'data'));
-  res.render('pages/index.ejs', {fileList: fileList})
+  logFiles = fileList.filter((file) => file.includes("稼"));
+  modelFiles = fileList.filter((file) => file.includes("3D形状モデル"));
+  res.render('pages/index.ejs', {modelList: modelFiles, logList: logFiles})
 })
 
 app.get("/about", (req, res) => {
