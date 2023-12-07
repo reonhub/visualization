@@ -15,7 +15,6 @@ exports.fetchParameterImageUrl = function (DOMAIN, input){
   const axis = input.axis;
   const idx = input.logFile.replace(/[^0-9]/g, '');
   const range = input.colorRange;
-  console.log(param === "軸反転位置");
   if(param && axis && idx && range && fs.existsSync(`./public/image/${param}_${axis}_${idx}_${range}.png`)){
     return `http://${DOMAIN}:3000/image/${param}_${axis}_${idx}_${range}.png`
   } else if (param && param === "軸反転位置" && idx && fs.existsSync(`./public/image/${param}_${axis}_${idx}.png`)){

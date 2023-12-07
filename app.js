@@ -44,7 +44,7 @@ app.get("/contact", (req, res) => {
 app.post("/execute", async (req, res) => {
   const data = req.body;
   const headers = {Accept: "application/json"};
-  url = data.visualizeMode == "mode1" ?  "/visualize/error" : "/visualize/parameter";
+  const url = data.visualizeMode == "mode1" ?  "/visualize/error" : "/visualize/parameter";
   let result = await axios.post(url, data, { headers }).then((response) => {
     return response.data;
   }).catch((err) => {
@@ -53,10 +53,45 @@ app.post("/execute", async (req, res) => {
   res.render("pages/result.ejs", {result: result, data: data})
 });
 
+app.post("/api/visualize/error", async (req, res) => {
+  try{
+    const data = req.body;
+    const headers = {Accept: "application/json"};
+    const url = "/visualize/error"
+    let result = await axios.post(url, data, { headers }).then((response) => {
+      return response.data;
+    }).catch((err) => {
+      console.log(err);
+    });
+    res.send(result);
+  } catch(err) {  
+    console.log(err)
+  }
+});
+
 app.post("/visualize/error", (req, res) => {
   imageUrl = visualize.fetchErrorImageUrl(DOMAIN, req.body);
   res.send({output: imageUrl})
 });
+
+app.post("/api/visualize/parameter", async (req, res) => {
+  try{
+    const logFileName = req.body.logFile.split(".")[0];
+    const colorRange = req.body.colorRange;
+    const [param, axis, logFile] = logFileName.split("_");
+    const data = {param: param, axis: axis, logFile: logFile, colorRange: colorRange};
+    const headers = {Accept: "application/json"};
+    const url = "/visualize/parameter"
+    let result = await axios.post(url, data, { headers }).then((response) => {
+      return response.data;
+    }).catch((err) => {
+      console.log(err);
+    });
+    res.send(result);
+  } catch(err) {  
+    console.log(err)
+  }
+})
 
 app.post("/visualize/parameter", (req, res) => {
   imageUrl = visualize.fetchParameterImageUrl(DOMAIN, req.body);
