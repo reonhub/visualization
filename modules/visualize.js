@@ -3,7 +3,11 @@ const fs = require("fs");
 exports.fetchErrorImageUrl = function (DOMAIN, input){
   const idx = input.logFile.replace(/[^0-9]/g, '');
   const range = input.colorRange;
-  if(input.modelFile == "3D形状モデル" && idx && range && fs.existsSync(`./public/image/加工誤差_${idx}_${range}.png`)){
+  if(input.modelFile.indexOf("3D形状モデル") !== 0){
+    return "https://via.placeholder.com/570x292/?text=Not%20Found";
+  }
+
+  if(idx && range && fs.existsSync(`./public/image/加工誤差_${idx}_${range}.png`)){
     return `http://${DOMAIN}:3000/image/加工誤差_${idx}_${range}.png`;
   } else {
     return "https://via.placeholder.com/570x292/?text=Not%20Found";
