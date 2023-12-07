@@ -3,7 +3,7 @@ const fs = require("fs");
 exports.fetchErrorImageUrl = function (DOMAIN, input){
   const idx = input.logFile.replace(/[^0-9]/g, '');
   const range = input.colorRange;
-  if(input.modelFile.indexOf("3D") !== 0){
+  if(!input.modelFile.includes("3D")){
     return "https://via.placeholder.com/570x292/?text=Not%20Found";
   }
 
