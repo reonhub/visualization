@@ -41,6 +41,23 @@ app.get("/about", (req, res) => {
 app.get("/contact", (req, res) => {
   res.render('pages/contact.ejs');
 })
+
+app.get("/api/visualize/parameter",(req, res) => {
+  res.redirect("/");
+})
+
+app.get("/api/visualize/error",(req, res) => {
+  res.redirect("/");
+})
+
+app.get("/visualize/parameter",(req, res) => {
+  res.redirect("/");
+})
+
+app.get("/visualize/error",(req, res) => {
+  res.redirect("/");
+})
+
 app.post("/execute", async (req, res) => {
   const data = req.body;
   const headers = {Accept: "application/json"};
@@ -97,6 +114,9 @@ app.post("/visualize/parameter", (req, res) => {
   imageUrl = visualize.fetchParameterImageUrl(DOMAIN, req.body);
   res.send({output: imageUrl})
 });
+
+
+
 
 app.listen(PORT, ()=> {
   console.log("サーバー起動中");
